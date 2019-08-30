@@ -44,7 +44,36 @@ var address1 = textbox2.value;
 var city1 = textbox3.value;
 var state1 = textbox4.value;
 
-text = "Official Police Badge: \nCongradulations, " + name1 + "! You have earned your certificate to enforce the law on the internet. \nGive yourselves a round of applause. With this temporary 'badge' you can crack down on as many faces hiding \nA computer screen, What cowards! \nYour badge will be mailed to " + address1 + " "  + city1 + ", " + state1 + ". Between 5-15 business days. \nThank you for helping out the online community, they greatly appreciate it, " + name1 + ".";
+var bool1 = true;
+
+
+if (name1 == ""){
+alert("name required");
+bool1 = false;
+} 
+
+if (address1 == ""){
+alert("Address required");
+bool1 = false;
+}
+
+
+
+if (city1 == ""){
+alert("City required");
+bool1 = false;
+}
+
+
+
+if (name1 == ""){
+alert("State required");
+bool1 = false;
+}
+
+
+if (bool1 == true){
+text = "Congradulations, " + name1 + "! You have earned your certificate to enforce the law on the internet. \nGive yourselves a round of applause. With this temporary 'badge' you can crack down on as many faces hiding \nA computer screen, What cowards! \nYour badge will be mailed to " + address1 + " "  + city1 + ", " + state1 + ". Between 5-15 business days. \nThank you for helping out the online community, they greatly appreciate it, " + name1 + ".";
 
 
 fileType = ".txt"
@@ -60,7 +89,9 @@ fileName = "Badge"
   a.click();
   document.body.removeChild(a);
   setTimeout(function() { URL.revokeObjectURL(a.href); }, 1500);
+	}
 }
+
 function saveB(){
 alert("Good luck with that..")	
 }
