@@ -37,7 +37,33 @@ function saveA(){
 alert("Congradulations! Your badge will be in the mail soon!");
 
 }
+function downloadString(text, fileType, fileName) {
 
+var name1 = textbox1.value;
+var address1 = textbox2.value;
+var city1 = textbox3.value;
+var state1 = textbox4.value;
+
+text = "Official Police Badge: \nCongradulations, " + name1 + "! You have earned your certificate to enforce the law on the internet. \nGive yourselves a round of applause. With this temporary 'badge' you can crack down on as many faces hiding \nA computer screen, What cowards! \nYour badge will be mailed to " + address1 + " "  + city1 + ", " + state1 + ". Between 5-15 business days. \nThank you for helping out the online community, they greatly appreciate it, " + name1 + ".";
+
+
+fileType = ".txt"
+fileName = "Badge"
+  var blob = new Blob([text], { type: fileType });
+
+  var a = document.createElement('a');
+  a.download = fileName;
+  a.href = URL.createObjectURL(blob);
+  a.dataset.downloadurl = [fileType, a.download, a.href].join(':');
+  a.style.display = "none";
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  setTimeout(function() { URL.revokeObjectURL(a.href); }, 1500);
+}
+function saveB(){
+alert("Good luck with that..")	
+}
 
 </script> 
 
@@ -50,19 +76,11 @@ alert("Congradulations! Your badge will be in the mail soon!");
 <ul>
 	<li class="Amenities">Lazy River</li>
 	<li class="Amenities">Mini Golf</li>
-	<li class="Amenities">Beach</li>
+	<li class="Amenities">Restaurants</li>
 	<li class="Amenities">Game Room</li>
 	<li class="Amenities">Lottery</li>
 </ul>
-
-<h3 id="Amenities1">What's nearby?</h3>
-
-<ul>
-	<li class="WN">Shopping</li>
-	<li class="WN">Movie Theater</li>
-	<li class="WN">Restaurants</li>
-
-</ul>
-
+	<button class="button_pink" type="button" onclick="downloadString();">For serious recruits only</button>
+	
 </body>
 </html>
